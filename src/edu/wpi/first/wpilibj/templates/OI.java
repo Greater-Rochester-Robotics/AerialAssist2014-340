@@ -1,14 +1,42 @@
 
 package edu.wpi.first.wpilibj.templates;
 
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
-import edu.wpi.first.wpilibj.buttons.DigitalIOButton;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.templates.commands.*;
 
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
+    Joystick xboxDriverController = new Joystick(1);
+    Button buttonA = new JoystickButton(xboxDriverController,1);
+    Button buttonB = new JoystickButton(xboxDriverController,2);
+    Button buttonX = new JoystickButton(xboxDriverController,3);
+    Button buttonY = new JoystickButton(xboxDriverController,4);
+    Button buttonLB = new JoystickButton(xboxDriverController,5);
+    Button buttonRB = new JoystickButton(xboxDriverController,6);
+    Button buttonBack = new JoystickButton(xboxDriverController,7);
+    Button buttonStart = new JoystickButton(xboxDriverController,8);
+    
+    
+    
+    public OI()
+    {
+        buttonLB.whenPressed(new GearUp());
+        buttonRB.whenPressed(new GearDown());
+    }
+    public double getDriveMove(){
+        return xboxDriverController.getRawAxis(2); //x-axis
+    }
+    public double getDriveRotate(){
+        return xboxDriverController.getRawAxis(1); //y-axis
+    }
+    
+    
+    
     //// CREATING BUTTONS
     // One type of button is a joystick button which is any button on a joystick.
     // You create one by telling it which joystick it's on and which button
