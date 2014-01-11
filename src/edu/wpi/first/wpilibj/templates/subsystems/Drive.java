@@ -5,15 +5,26 @@
  */
 package edu.wpi.first.wpilibj.templates.subsystems;
 
+import edu.wpi.first.wpilibj.CANJaguar;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
  *
- * @author Robotics
+ * @author Tech
  */
 public class Drive extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
+    CANJaguar leftDrive1;
+    CANJaguar leftDrive2;
+    CANJaguar leftDrive3;
+    CANJaguar rightDrive1;
+    CANJaguar rightDrive2;
+    CANJaguar rightDrive3;
+    
+    
+   
+    
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
